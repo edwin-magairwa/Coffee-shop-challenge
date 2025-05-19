@@ -7,12 +7,17 @@ class Customer:
 
     @property
     def name(self):
-    
-    def coffees(self):
-        return list(set(order.coffee for order in self.orders()))
+        return self._name
 
-    def create_order(self, coffee, price):
-        if not isinstance(coffee, Coffee):
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str) or not (1 <= len(value) <= 15):
+            raise ValueError("Name must be a string between 1 and 15 characters")
+        self._name = value
+
+    def orders(self):
+        return [order for order in Order.all_orders if order.customer == self]
+
             raise ValueError("Coffee must be a Coffee instance")
         return Order(self, coffee, price)
 
