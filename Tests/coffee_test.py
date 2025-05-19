@@ -1,8 +1,13 @@
-    with self.assertRaises(ValueError):
-            Coffee("Ab")
-        with self.assertRaises(ValueError):
-            Coffee(123)
-
+import unittest
+from coffee import Coffee
+from customer import Customer
+from order import Order
+class TestCoffee(unittest.TestCase):
+    def setUp(self):
+        Order.all_orders = []
+        self.customer = Customer("Alice")
+        self.coffee = Coffee("Espresso")
+    
     def test_immutable_name(self):
         with self.assertRaises(AttributeError):
             self.coffee.name = "Latte"
