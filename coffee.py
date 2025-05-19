@@ -7,12 +7,14 @@ class Coffee:
         self._name = name
 
     @property
-    
-        return list(set(order.customer for order in self.orders()))
+    def name(self)
+        return self._name
 
-    def num_orders(self):
-        return len(self.orders())
+    @name.setter
+    def name(self, value):
+        raise AttributeError("Coffee name is immutable")
 
-    def average_price(self):
-        orders = self.orders()
-        return sum(order.price for order in orders) / len(orders) if orders else 0
+    def orders(self):
+        return [order for order in Order.all_orders if order.coffee == self]
+
+ 
