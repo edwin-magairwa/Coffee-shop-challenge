@@ -1,10 +1,7 @@
-
-
-class TestCoffee(unittest.TestCase):
-    def setUp(self):
-        Order.all_orders = []
-        self.customer = Customer("Alice")
-        self.coffee = Coffee("Espresso")
+import unittest
+from coffee import Coffee
+from customer import Customer
+from order import Order
 
     def test_name_validation(self):
         with self.assertRaises(ValueError):
