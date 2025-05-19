@@ -1,13 +1,4 @@
-from coffee import Coffee
-from order import Order
 
-class Customer:
-    def __init__(self, name):
-        self.name = name  # Uses setter for validation
-
-    @property
-    def name(self):
-        return self._name
 
     @name.setter
     def name(self, value):
