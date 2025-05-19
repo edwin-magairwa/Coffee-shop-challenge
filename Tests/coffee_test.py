@@ -1,10 +1,4 @@
-import unittest
-from coffee import Coffee
-from customer import Customer
-from order import Order
-
-    def test_name_validation(self):
-        with self.assertRaises(ValueError):
+    with self.assertRaises(ValueError):
             Coffee("Ab")
         with self.assertRaises(ValueError):
             Coffee(123)
