@@ -27,7 +27,17 @@ class Customer:
             raise ValueError("Name must be a string between 1 and 15 characters")
         self._name = value
 
-    
+    def orders(self):
+        return [order for order in Order.all_orders if order.customer == self]
+
+            raise ValueError("Coffee must be a Coffee instance")
+        return Order(self, coffee, price)
+
+    @classmethod
+    def most_aficionado(cls, coffee):
+        if not isinstance(coffee, Coffee):
+            raise ValueError("Argument must be a Coffee instance")
+        customer_spending = {}
         for order in coffee.orders():
             customer = order.customer
             customer_spending[customer] = customer_spending.get(customer, 0) + order.price
