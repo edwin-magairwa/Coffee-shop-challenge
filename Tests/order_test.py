@@ -1,10 +1,7 @@
-
-
-class TestOrder(unittest.TestCase):
-    def setUp(self):
-        Order.all_orders = []
-        self.customer = Customer("Alice")
-        self.coffee = Coffee("Espresso")
+import unittest
+from customer import Customer
+from coffee import Coffee
+from order import Order
 
     def test_price_validation(self):
         with self.assertRaises(ValueError):
