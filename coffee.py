@@ -1,14 +1,13 @@
-:
-        return self._name
+:from order import Order
 
-    @name.setter
-    def name(self, value):
-        raise AttributeError("Coffee name is immutable")
+class Coffee:
+    def __init__(self, name):
+        if not isinstance(name, str) or len(name) < 3:
+            raise ValueError("Name must be a string with at least 3 characters")
+        self._name = name
 
-    def orders(self):
-        return [order for order in Order.all_orders if order.coffee == self]
-
-    def customers(self):
+    @property
+    
         return list(set(order.customer for order in self.orders()))
 
     def num_orders(self):
