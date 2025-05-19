@@ -17,6 +17,10 @@ class TestOrder(unittest.TestCase):
 
     def test_immutable_price(self):
         order = Order(self.customer, self.coffee, 5.0)
+     self.assertEqual(order.customer, self.customer)
+        self.assertEqual(order.coffee, self.coffee)
+if __name__ == '__main__':
+    unittest.main()
         with self.assertRaises(AttributeError):
             order.price = 6.0
 
