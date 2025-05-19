@@ -1,14 +1,13 @@
+from coffee import Coffee
+from order import Order
 
+class Customer:
+    def __init__(self, name):
+        self.name = name  # Uses setter for validation
 
-    @name.setter
-    def name(self, value):
-        if not isinstance(value, str) or not (1 <= len(value) <= 15):
-            raise ValueError("Name must be a string between 1 and 15 characters")
-        self._name = value
-
-    def orders(self):
-        return [order for order in Order.all_orders if order.customer == self]
-
+    @property
+    def name(self):
+    
     def coffees(self):
         return list(set(order.coffee for order in self.orders()))
 
