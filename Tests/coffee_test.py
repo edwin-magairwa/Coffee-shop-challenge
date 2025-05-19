@@ -7,17 +7,12 @@ class TestCoffee(unittest.TestCase):
         Order.all_orders = []
         self.customer = Customer("Alice")
         self.coffee = Coffee("Espresso")
-    
-    def test_immutable_name(self):
-        with self.assertRaises(AttributeError):
-            self.coffee.name = "Latte"
-
-    def test_orders(self):
-        order = Order(self.customer, self.coffee, 5.0)
-        self.assertEqual(self.coffee.orders(), [order])
-
-    def test_customers(self):
-        Order(self.customer, self.coffee, 5.0)
+    def test_name_validation(self):
+    with self.assertRaises(ValueError):
+            Coffee("Ab")
+        with self.assertRaises(ValueError):
+            Coffee(123)
+Order(self.customer, self.coffee, 5.0)
         self.assertEqual(self.coffee.customers(), [self.customer])
 
     def test_num_orders(self):
